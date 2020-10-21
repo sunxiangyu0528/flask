@@ -52,9 +52,13 @@ def app(env, start_response):
         start_response("404 not found", [("content-type", "text/plain")])
         return [b"page not found"]
     return [resp().encode()]
-    # else :
-    #     start_response("200 ok", [("content-type", "text/plain")])
-    #     return [b"{}".f]
+
+
+server = make_server("", 6001, app=app)
+server.serve_forever()
+# else :
+#     start_response("200 ok", [("content-type", "text/plain")])
+#     return [b"{}".f]
 
 
 # if env.get("PATH_INFO") == "/":
@@ -72,7 +76,3 @@ def app(env, start_response):
 # else:
 #     start_response("404 ok", [("content-type", "text/plain")])
 #     return [b"page not found"]
-
-
-server = make_server("", 6001, app=app)
-server.serve_forever()

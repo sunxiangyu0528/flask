@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.config["hello"] = "world"
 
 
-@app.route('/home', redirect_to='/home/test',methods=["GET"])
+@app.route('/home', redirect_to='/home/test', methods=["GET"])
 def home():
     return "sunxy666"
 
